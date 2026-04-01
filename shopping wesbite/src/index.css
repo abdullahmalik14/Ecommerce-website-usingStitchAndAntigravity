@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  /* Editorial Palette: Pure Monochromatic with Gold Accent */
+  --color-primary: #000000;
+  --color-on-primary: #FFFFFF;
+  --color-secondary: #F9F9F9;
+  --color-on-secondary: #000000;
+  --color-tertiary: #B89661; /* Gold Accent */
+  
+  --color-surface: #FFFFFF;
+  --color-surface-container: #F9F9F9;
+  --color-surface-container-low: #F1F1F1;
+  --color-surface-container-high: #E8E8E8;
+  
+  --color-outline: #000000;
+  --color-outline-variant: #D1D1D1;
+
+  /* Fonts: Updated to Poppins globally */
+  --font-sans: "Poppins", sans-serif;
+  --font-serif: "Poppins", sans-serif; /* User asked for Poppins everywhere */
+  
+  /* Strict 0px Border Radius */
+  --radius-none: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-full: 0px;
+}
+
+/* Dark Mode Tokens Overlay */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  *, ::before, ::after {
+    border-radius: 0 !important;
+  }
+  
+  html {
+    @apply transition-colors duration-500;
+  }
+  
+  body {
+    @apply bg-surface text-primary font-sans antialiased selection:bg-primary selection:text-on-primary transition-colors duration-500;
+    margin: 0;
+  }
+
+  /* Dark mode base overrides */
+  .dark body {
+    --color-surface: #0A0A0A;
+    --color-primary: #FFFFFF;
+    --color-on-primary: #000000;
+    --color-surface-container: #121212;
+    --color-surface-container-low: #1A1A1A;
+    --color-surface-container-high: #242424;
+    --color-outline: #FFFFFF;
+    --color-outline-variant: #333333;
+    @apply bg-surface text-primary;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans uppercase tracking-tighter;
+    font-weight: 800;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-surface/80 backdrop-blur-md border border-primary/5 transition-all;
+  }
+  
+  .dark .glass {
+    @apply bg-surface/60 border-primary/10;
+  }
+  
+  .link-hover {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-primary after:transition-all hover:after:w-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 2px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-outline-variant;
+  }
+}
+
+@layer utilities {
+  .tracking-editorial {
+    letter-spacing: -0.02em;
+  }
+}

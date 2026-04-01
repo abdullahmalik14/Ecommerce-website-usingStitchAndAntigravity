@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary": "#ffffff",
+              "primary": "#000000",
+              "primary-fixed": "#e5e2e1",
+              "outline-variant": "#c4c7c7",
+              "primary-container": "#1c1b1b",
+              "on-primary-container": "#858383",
+              "background": "#fcf9f8",
+              "tertiary-fixed-dim": "#e9c176",
+              "on-tertiary-fixed-variant": "#5d4201",
+              "surface": "#fcf9f8",
+              "surface-container-lowest": "#ffffff",
+              "error": "#ba1a1a",
+              "on-primary-fixed-variant": "#474646",
+              "surface-dim": "#dcd9d9",
+              "inverse-primary": "#c8c6c5",
+              "tertiary-fixed": "#ffdea5",
+              "surface-variant": "#e5e2e1",
+              "outline": "#747878",
+              "surface-container": "#f0eded",
+              "on-surface-variant": "#444748",
+              "surface-tint": "#5f5e5e",
+              "on-background": "#1c1b1b",
+              "on-tertiary-container": "#a17f3b",
+              "inverse-on-surface": "#f3f0ef",
+              "secondary-container": "#d9e5e6",
+              "primary-fixed-dim": "#c8c6c5",
+              "on-primary-fixed": "#1c1b1b",
+              "tertiary-container": "#261900",
+              "surface-bright": "#fcf9f8",
+              "on-secondary-fixed-variant": "#3e494a",
+              "surface-container-high": "#eae7e7",
+              "secondary-fixed": "#d9e5e6",
+              "on-tertiary-fixed": "#261900",
+              "on-secondary-container": "#5b6667",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-secondary-fixed": "#131d1e",
+              "surface-container-highest": "#e5e2e1",
+              "tertiary": "#000000",
+              "surface-container-low": "#f6f3f2",
+              "inverse-surface": "#313030",
+              "secondary": "#566061",
+              "secondary-fixed-dim": "#bdc9ca",
+              "on-tertiary": "#ffffff",
+              "on-surface": "#1c1b1b",
+              "on-error-container": "#93000a",
+              "on-primary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+            animation: {
+              'fade-up': 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'item-exit': 'itemExit 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            },
+            keyframes: {
+              fadeUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              itemExit: {
+                '0%': { opacity: '1', transform: 'translateX(0)' },
+                '100%': { opacity: '0', transform: 'translateX(-20px)' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fcf9f8;
+            color: #1c1b1b;
+            font-family: 'Manrope', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        
+        /* Glassmorphism utility */
+        .glass-sidebar {
+            background: rgba(246, 243, 242, 0.7);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(196, 199, 199, 0.2);
+        }
+
+        /* Micro-animation for removal */
+        .removing {
+            animation: itemExit 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 w-full z-50 bg-stone-50/80 dark:bg-neutral-950/80 backdrop-blur-xl transition-colors duration-300 border-b border-outline-variant/10">
+<nav class="flex justify-between items-center w-full px-12 py-8 max-w-full mx-auto">
+<div class="font-serif text-2xl font-bold tracking-tighter text-neutral-900 dark:text-neutral-100 uppercase">
+                ARCHIVE
+            </div>
+<div class="hidden md:flex gap-16 font-serif text-sm tracking-[0.2em] items-center uppercase">
+<a class="text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-all" href="#">Shop</a>
+<a class="text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-all" href="#">Collections</a>
+<a class="text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-all" href="#">About</a>
+</div>
+<div class="flex items-center gap-8">
+<button class="hover:opacity-50 transition-opacity">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="hover:opacity-50 transition-opacity">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button class="hover:opacity-50 transition-opacity relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-primary text-on-primary text-[9px] w-4 h-4 flex items-center justify-center font-bold">2</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="pt-48 pb-32 px-12 max-w-[1600px] mx-auto">
+<!-- Cart Header -->
+<header class="mb-24 opacity-0 animate-fade-up">
+<h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter mb-4">YOUR SHOPPING BAG</h1>
+<p class="font-body text-on-surface-variant tracking-[0.3em] uppercase text-[10px] font-bold">2 ITEMS IN YOUR CURATION</p>
+</header>
+<div class="flex flex-col lg:flex-row gap-24">
+<!-- Item List (The Canvas) -->
+<div class="flex-grow space-y-20">
+<!-- Item 1 -->
+<div class="item-container opacity-0 animate-fade-up stagger-1 flex flex-col sm:flex-row gap-12 pb-16 items-start border-b border-outline-variant/20 last:border-0">
+<div class="w-full sm:w-64 aspect-[3/4] bg-surface-container-low overflow-hidden">
+<img alt="Luxury Wool Coat" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Close-up of a high-end charcoal wool trench coat draped over a minimalist chair, soft directional lighting, editorial style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRpfG5BBlnLbH7luuZqkMoDC9R7Vd4hGz8scG4q29aJ8VfiBg4hCyvPiwWTDIsPRtzvU5KCVcjQAeLf06Pi2GnAdSLCBh-iyqqMC0FuzBO-1tejNsA_MSq0sYWFEBLeQZv8NIcXS2A_2vqMGGJqjhsR7QNgZP1QuZ5XL-XaZD_Z_ySUgRmlOwQATqnE92DCIiWzJ1Cdx2GXxwFfceA5wzT68okLm9X49TdKKKpx3rnraxp7V3L_0jlcIf3Asd6kYudBXF2zpb9A6o"/>
+</div>
+<div class="flex-grow flex flex-col justify-between h-full py-4 min-h-[340px]">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline text-2xl font-bold mb-2 tracking-tight">RAW-EDGE WOOL TRENCH</h3>
+<p class="font-body text-xs text-on-surface-variant uppercase tracking-[0.15em] mb-6">Anthracite / Size 48</p>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors" onclick="this.closest('.item-container').classList.add('removing')">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<div class="flex flex-wrap items-end justify-between mt-auto gap-8">
+<div class="flex items-center border border-outline-variant/40">
+<button class="p-3 hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="px-8 font-body font-medium text-sm">1</span>
+<button class="p-3 hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+<div class="font-headline text-2xl font-bold">
+                                €1,450.00
+                            </div>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="item-container opacity-0 animate-fade-up stagger-2 flex flex-col sm:flex-row gap-12 pb-16 items-start border-b border-outline-variant/20 last:border-0">
+<div class="w-full sm:w-64 aspect-[3/4] bg-surface-container-low overflow-hidden">
+<img alt="Silk Shirt" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Minimalist studio shot of a white heavy-weight silk shirt with sharp collar, dramatic shadow, high-end fashion photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfbaUvHjY0qZJ56Nj9_LxtlwBmQ4FYy7UlgDI53b-xrrKBz9l5tWswsMqKmCUaspcHdlgo6ZnNh5Ev4bOyFxbqcMdSvnbif17ttiNmGea_Toz19MQ_eVFIeJB8oKNoxUcY6nVikh_l3Z-vZW2j_5EQxFSORYFktmA2WpzR5virj1fMbC1p4CsCjUSWs1OmiTfrF-cviVsSjMtYkna50JJdaNGfYP9HpiQhlwYeya1w5ZSd6rSyvYo2jNSPKHrCSv2-JEGGafgKJmM"/>
+</div>
+<div class="flex-grow flex flex-col justify-between h-full py-4 min-h-[340px]">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline text-2xl font-bold mb-2 tracking-tight">ARCHIVE SILK OXFORD</h3>
+<p class="font-body text-xs text-on-surface-variant uppercase tracking-[0.15em] mb-6">Optic White / Size M</p>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors" onclick="this.closest('.item-container').classList.add('removing')">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<div class="flex flex-wrap items-end justify-between mt-auto gap-8">
+<div class="flex items-center border border-outline-variant/40">
+<button class="p-3 hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="px-8 font-body font-medium text-sm">1</span>
+<button class="p-3 hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+<div class="font-headline text-2xl font-bold">
+                                €420.00
+                            </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Order Summary -->
+<aside class="w-full lg:w-[460px]">
+<div class="glass-sidebar p-12 sticky top-48">
+<h2 class="font-headline text-3xl font-bold mb-12 tracking-tight">SUMMARY</h2>
+<div class="space-y-8 mb-12">
+<div class="flex justify-between text-[11px] tracking-[0.2em] uppercase font-bold text-on-surface-variant">
+<span>Subtotal</span>
+<span class="text-on-surface">€1,870.00</span>
+</div>
+<div class="flex justify-between text-[11px] tracking-[0.2em] uppercase font-bold text-on-surface-variant">
+<span>Shipping</span>
+<span class="text-on-surface italic">Calculated at checkout</span>
+</div>
+<div class="pt-10 border-t border-outline-variant/30 flex justify-between items-baseline">
+<span class="font-headline text-xl font-bold">TOTAL</span>
+<span class="font-headline text-3xl font-bold">€1,870.00</span>
+</div>
+</div>
+<!-- Promo Code -->
+<div class="mb-12">
+<label class="block text-[10px] tracking-[0.25em] font-bold text-on-surface-variant mb-4 uppercase">Promotional Code</label>
+<div class="relative">
+<input class="w-full bg-transparent border-b border-outline-variant/50 focus:border-primary px-0 py-4 text-xs placeholder:text-outline-variant/70 focus:ring-0 transition-all uppercase tracking-[0.2em] font-bold" placeholder="ENTER PROMO CODE" type="text"/>
+<button class="absolute right-0 top-1/2 -translate-y-1/2 text-[10px] font-bold tracking-[0.2em] text-primary hover:opacity-50 transition-opacity">APPLY</button>
+</div>
+</div>
+<!-- Actions -->
+<div class="space-y-6">
+<button class="w-full bg-primary text-on-primary py-6 font-body text-[11px] font-bold tracking-[0.3em] transition-all duration-300 hover:scale-[1.02] hover:bg-neutral-800 active:scale-[0.98] flex items-center justify-center gap-3">
+                            SECURE CHECKOUT
+                            <span class="material-symbols-outlined text-base">lock</span>
+</button>
+<a class="block w-full text-center py-2 text-[10px] font-bold tracking-[0.3em] text-on-surface-variant hover:text-primary transition-colors underline underline-offset-[12px] decoration-outline-variant/40" href="#">
+                            CONTINUE SHOPPING
+                        </a>
+</div>
+<!-- Craftsmanship Note -->
+<div class="mt-16 pt-10 border-t border-outline-variant/20">
+<p class="font-body text-[11px] leading-relaxed text-on-surface-variant italic opacity-70">
+                            Each piece in the Archive collection is meticulously handcrafted by our artisans in our digital atelier. Complimentary carbon-neutral shipping is included on all orders over €500.
+                        </p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-surface-container-low border-t border-outline-variant/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-20 px-12 py-32 w-full max-w-full mx-auto">
+<div class="space-y-8">
+<div class="font-serif text-2xl italic text-neutral-900 dark:text-neutral-100 font-bold">Archive.</div>
+<p class="font-body text-[11px] tracking-[0.15em] text-on-surface-variant uppercase leading-loose">
+                    A digital atelier specializing in the preservation and curation of timeless tailoring.
+                </p>
+</div>
+<div class="space-y-6">
+<h4 class="font-body text-[10px] tracking-[0.3em] font-bold text-neutral-900 dark:text-neutral-100 uppercase">Information</h4>
+<div class="flex flex-col space-y-4 font-body text-[10px] tracking-[0.2em] uppercase">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">About Us</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="font-body text-[10px] tracking-[0.3em] font-bold text-neutral-900 dark:text-neutral-100 uppercase">Support</h4>
+<div class="flex flex-col space-y-4 font-body text-[10px] tracking-[0.2em] uppercase">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Customer Service</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Newsletter</a>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="font-body text-[10px] tracking-[0.3em] font-bold text-neutral-900 dark:text-neutral-100 uppercase">Copyright</h4>
+<p class="text-on-surface-variant font-body text-[10px] tracking-[0.2em] leading-loose">
+                    © 2024 THE EDITORIAL ARCHIVE. <br/>ALL RIGHTS RESERVED.
+                </p>
+</div>
+</div>
+</footer>
+</body></html>

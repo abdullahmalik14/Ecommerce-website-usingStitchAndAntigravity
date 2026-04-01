@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#ffdea5",
+              "surface-dim": "#efd5cb",
+              "on-primary-fixed-variant": "#7f2b00",
+              "inverse-on-surface": "#ffede7",
+              "surface": "#fff8f6",
+              "primary": "#a33900",
+              "on-error": "#ffffff",
+              "on-primary-container": "#fffbff",
+              "inverse-surface": "#3d2d26",
+              "on-secondary-container": "#763011",
+              "on-primary": "#ffffff",
+              "background": "#fff8f6",
+              "on-primary-fixed": "#370e00",
+              "error-container": "#ffdad6",
+              "inverse-primary": "#ffb599",
+              "surface-container": "#ffe9e2",
+              "on-background": "#261813",
+              "on-tertiary-fixed": "#261900",
+              "secondary-fixed": "#ffdbce",
+              "on-surface-variant": "#5a4138",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#fff1ec",
+              "primary-fixed": "#ffdbce",
+              "tertiary-container": "#90702e",
+              "secondary": "#964827",
+              "tertiary-fixed-dim": "#e9c176",
+              "outline-variant": "#e2bfb3",
+              "on-secondary": "#ffffff",
+              "primary-container": "#cc4900",
+              "on-surface": "#261813",
+              "surface-container-high": "#fee3d9",
+              "surface-container-highest": "#f8ddd3",
+              "surface-bright": "#fff8f6",
+              "on-error-container": "#93000a",
+              "tertiary": "#755717",
+              "primary-fixed-dim": "#ffb599",
+              "on-tertiary-fixed-variant": "#5d4201",
+              "secondary-fixed-dim": "#ffb599",
+              "outline": "#8e7166",
+              "secondary-container": "#fd9a72",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed-variant": "#783112",
+              "error": "#ba1a1a",
+              "surface-variant": "#f8ddd3",
+              "on-secondary-fixed": "#370e00",
+              "on-tertiary-container": "#fffbff",
+              "surface-tint": "#a73a00"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-reveal {
+            animation: revealUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        @keyframes revealUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        
+        .tertiary-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+        .tertiary-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background min-h-screen flex flex-col selection:bg-primary-fixed-dim">
+<!-- TopNavBar (Simplified for focused Login intent) -->
+<header class="fixed top-0 w-full z-50 rounded-none border-b border-black/5 bg-white/70 backdrop-blur-[30px] flex justify-between items-center w-full px-8 py-6 max-w-none">
+<a class="text-2xl font-headline font-black tracking-tighter text-black uppercase" href="/">
+            ATELIER NOIR
+        </a>
+<div class="hidden md:flex space-x-12">
+<a class="font-headline font-light tracking-tight text-gray-500 hover:text-black transition-colors duration-300" href="#">Collections</a>
+<a class="font-headline font-light tracking-tight text-gray-500 hover:text-black transition-colors duration-300" href="#">Archives</a>
+<a class="font-headline font-light tracking-tight text-gray-500 hover:text-black transition-colors duration-300" href="#">The Studio</a>
+</div>
+<button class="text-xs font-label tracking-[0.2em] uppercase border-b border-black py-1 hover:opacity-70 transition-opacity">
+            Support
+        </button>
+</header>
+<main class="flex-grow flex items-center justify-center pt-24 pb-32 relative overflow-hidden">
+<!-- Background Editorial Element -->
+<div class="absolute inset-0 z-0 opacity-10 pointer-events-none">
+<img class="w-full h-full object-cover grayscale" data-alt="Monochromatic high-fashion editorial close-up of textured fabric and architectural shadows in a minimalist white studio space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEwv4RrWVhfuppaOHWMm6ntkjbwv-9ehamB9a4B9R2q2_5Pv7-0r1_AfT7v33ddMpXKRmn00eb9iIc81r0FUg0HkeZgJa1rSSKyfbyW9fuJOQBDjTMsCCfjnc1FzfJiJSQXR-QvNALAoJteu2RhOFPZNM0j8hCGbsIHjNUH6jzI8CaG2jQlWj-pl5AmF_OUNSf-ysa2sVL48f5krv1nLpy54JTqbGde3E8HMuo_GYixmBocNfOpBeqK1SIpVwpc0N0pbcbPyEUWMw"/>
+</div>
+<!-- Login Container -->
+<div class="relative z-10 w-full max-w-md px-8">
+<div class="editorial-reveal bg-white/40 p-12 backdrop-blur-sm border border-black/5">
+<div class="mb-12 text-center stagger-1">
+<h1 class="font-headline text-4xl font-light tracking-tight text-black mb-4">Welcome Back</h1>
+<p class="font-label text-[10px] tracking-[0.2em] uppercase text-gray-500">Access your private archive</p>
+</div>
+<form class="space-y-8">
+<!-- Email Field -->
+<div class="editorial-reveal stagger-2 group">
+<label class="block font-label text-[10px] tracking-[0.2em] uppercase text-gray-500 mb-2 group-focus-within:text-black transition-colors" for="email">
+                            Identifier
+                        </label>
+<input class="w-full bg-transparent border-0 border-b border-gray-200 focus:border-black focus:ring-0 px-0 py-3 font-body text-sm placeholder:text-gray-300 transition-all" id="email" placeholder="email@atelier-noir.com" type="email"/>
+</div>
+<!-- Password Field -->
+<div class="editorial-reveal stagger-3 group">
+<div class="flex justify-between items-end mb-2">
+<label class="block font-label text-[10px] tracking-[0.2em] uppercase text-gray-500 group-focus-within:text-black transition-colors" for="password">
+                                Credential
+                            </label>
+<a class="font-label text-[9px] tracking-[0.1em] uppercase text-gray-400 hover:text-black transition-colors relative tertiary-link" href="#">
+                                Forgot Password?
+                            </a>
+</div>
+<input class="w-full bg-transparent border-0 border-b border-gray-200 focus:border-black focus:ring-0 px-0 py-3 font-body text-sm placeholder:text-gray-300 transition-all" id="password" placeholder="••••••••" type="password"/>
+</div>
+<!-- Primary Action -->
+<div class="pt-6 editorial-reveal stagger-4">
+<button class="w-full bg-black text-white font-label text-xs tracking-[0.3em] uppercase py-5 px-8 hover:bg-gray-900 transition-all duration-300 flex justify-between items-center group" type="submit">
+<span>Enter the Archive</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Alternative Action -->
+<div class="mt-16 text-center editorial-reveal stagger-4 opacity-70">
+<p class="font-label text-[10px] tracking-[0.1em] uppercase text-gray-500 mb-4">New to the studio?</p>
+<a class="font-label text-[11px] tracking-[0.2em] uppercase text-black font-semibold relative tertiary-link" href="#">
+                        Create Account
+                    </a>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Glassmorphic) -->
+<footer class="fixed bottom-0 w-full z-50 rounded-none border-t border-black/5 bg-white/70 backdrop-blur-[30px] flex flex-col md:flex-row justify-between items-center w-full px-12 py-8">
+<div class="font-label text-[10px] tracking-[0.2em] uppercase text-gray-500 mb-4 md:mb-0">
+            © 2024 ATELIER NOIR. ALL RIGHTS RESERVED.
+        </div>
+<div class="flex space-x-8">
+<a class="font-label text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:text-black transition-colors duration-300" href="#">Privacy Policy</a>
+<a class="font-label text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:text-black transition-colors duration-300" href="#">Terms of Service</a>
+<a class="font-label text-[10px] tracking-[0.2em] uppercase text-gray-500 hover:text-black transition-colors duration-300" href="#">Contact</a>
+</div>
+</footer>
+</body></html>

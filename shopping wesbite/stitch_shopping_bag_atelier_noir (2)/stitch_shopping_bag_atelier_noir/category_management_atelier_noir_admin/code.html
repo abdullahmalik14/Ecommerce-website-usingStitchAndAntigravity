@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300;400;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-fixed-variant": "#7f2b00",
+            "tertiary-fixed-dim": "#e9c176",
+            "inverse-surface": "#3d2d26",
+            "surface-bright": "#fff8f6",
+            "primary-fixed": "#ffdbce",
+            "inverse-on-surface": "#ffede7",
+            "on-tertiary-fixed-variant": "#5d4201",
+            "secondary-fixed-dim": "#ffb599",
+            "surface-container-lowest": "#ffffff",
+            "surface-dim": "#efd5cb",
+            "surface-container-high": "#fee3d9",
+            "primary-container": "#cc4900",
+            "on-error": "#ffffff",
+            "surface-variant": "#f8ddd3",
+            "primary-fixed-dim": "#ffb599",
+            "on-tertiary": "#ffffff",
+            "error": "#ba1a1a",
+            "on-primary": "#ffffff",
+            "surface-container-highest": "#f8ddd3",
+            "on-surface-variant": "#5a4138",
+            "on-secondary-fixed-variant": "#783112",
+            "tertiary-fixed": "#ffdea5",
+            "surface-container": "#ffe9e2",
+            "secondary-container": "#fd9a72",
+            "outline": "#8e7166",
+            "inverse-primary": "#ffb599",
+            "on-surface": "#261813",
+            "on-secondary": "#ffffff",
+            "secondary-fixed": "#ffdbce",
+            "on-primary-fixed": "#370e00",
+            "on-tertiary-fixed": "#261900",
+            "on-error-container": "#93000a",
+            "secondary": "#964827",
+            "surface": "#fff8f6",
+            "on-background": "#261813",
+            "primary": "#a33900",
+            "surface-tint": "#a73a00",
+            "on-secondary-container": "#763011",
+            "surface-container-low": "#fff1ec",
+            "tertiary": "#755717",
+            "on-primary-container": "#fffbff",
+            "on-secondary-fixed": "#370e00",
+            "on-tertiary-container": "#fffbff",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#90702e",
+            "outline-variant": "#e2bfb3",
+            "background": "#fff8f6"
+          },
+          fontFamily: {
+            "headline": ["Noto Serif"],
+            "body": ["Manrope"],
+            "label": ["Manrope"]
+          },
+          borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-effect {
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+    }
+    .stagger-1 { animation: fadeUp 0.6s ease-out forwards; animation-delay: 0.1s; opacity: 0; }
+    .stagger-2 { animation: fadeUp 0.6s ease-out forwards; animation-delay: 0.2s; opacity: 0; }
+    .stagger-3 { animation: fadeUp 0.6s ease-out forwards; animation-delay: 0.3s; opacity: 0; }
+    .stagger-4 { animation: fadeUp 0.6s ease-out forwards; animation-delay: 0.4s; opacity: 0; }
+    .stagger-5 { animation: fadeUp 0.6s ease-out forwards; animation-delay: 0.5s; opacity: 0; }
+    
+    @keyframes fadeUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-secondary-container/30 overflow-x-hidden">
+<!-- TopNavBar Implementation from JSON -->
+<nav class="fixed top-0 w-full z-50 border-b-0 rounded-none bg-white/70 backdrop-blur-[30px] shadow-none border-b border-slate-200/20">
+<div class="flex justify-between items-center h-20 px-12 w-full">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold tracking-tighter uppercase text-slate-950 font-['Noto_Serif']">Atelier Noir</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-slate-950 font-semibold font-['Noto_Serif'] font-light tracking-tight transition-all duration-300 ease-out hover:scale-[1.02]" href="#">Inventory</a>
+<a class="text-slate-500 font-['Noto_Serif'] font-light tracking-tight hover:bg-slate-100/50 transition-all duration-300 ease-out hover:scale-[1.02] px-2 py-1" href="#">Analytics</a>
+<a class="text-slate-500 font-['Noto_Serif'] font-light tracking-tight hover:bg-slate-100/50 transition-all duration-300 ease-out hover:scale-[1.02] px-2 py-1" href="#">Shipments</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined text-slate-900 cursor-pointer p-2 hover:bg-slate-100/50 transition-all duration-300 ease-out">notifications</span>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined text-slate-900 cursor-pointer p-2 hover:bg-slate-100/50 transition-all duration-300 ease-out">settings</span>
+</div>
+<div class="w-10 h-10 border border-outline/20 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover grayscale" data-alt="Close-up professional portrait of a man with a sharp jawline and minimalist dark clothing against a neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa8WbnPP5STNiUy9SmgN1kfH--173HXsLcGu_h_o9pEBZU4ZE63a2yZVG3FzqaSBlM3eiArK47f-w9UF8C8t92jO673YakZG3dNfPvlHJIQe93j3iXTsSC3x4FKnTp_G2304DQaqkUXAS9oXJOKO7RaYK1nr0-y-245AmUcNOs8_kkwrpV3IdyHRbnSo71ztgzxFJdXYQ2wocRkvvoG7t_u2szhCIn9HgxP7z3YuSxr_iCu92NLVTeFtFEPYCOjZzexBevexou0Nk"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- SideNavBar Implementation from JSON -->
+<aside class="fixed left-0 top-20 h-[calc(100vh-5rem)] w-64 rounded-none border-r border-slate-200 bg-white z-40 hidden md:flex flex-col py-8">
+<div class="px-6 mb-8">
+<h3 class="font-['Manrope'] text-[0.6875rem] uppercase tracking-[0.2em] font-medium text-slate-400">Management</h3>
+<p class="text-[0.6rem] text-slate-300 tracking-[0.1em] mt-1 uppercase">Suite v1.0</p>
+</div>
+<nav class="flex-1">
+<ul class="space-y-1">
+<li>
+<a class="text-slate-400 px-6 py-4 flex items-center gap-4 font-['Manrope'] text-[0.6875rem] uppercase tracking-[0.2em] font-medium hover:text-slate-950 transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined transition-transform duration-300 group-hover:translate-x-1">dashboard</span>
+<span>Overview</span>
+</a>
+</li>
+<li>
+<a class="text-slate-400 px-6 py-4 flex items-center gap-4 font-['Manrope'] text-[0.6875rem] uppercase tracking-[0.2em] font-medium hover:text-slate-950 transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined transition-transform duration-300 group-hover:translate-x-1">inventory_2</span>
+<span>Products</span>
+</a>
+</li>
+<li>
+<a class="text-slate-400 px-6 py-4 flex items-center gap-4 font-['Manrope'] text-[0.6875rem] uppercase tracking-[0.2em] font-medium hover:text-slate-950 transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined transition-transform duration-300 group-hover:translate-x-1">shopping_bag</span>
+<span>Orders</span>
+</a>
+</li>
+<li>
+<a class="text-slate-400 px-6 py-4 flex items-center gap-4 font-['Manrope'] text-[0.6875rem] uppercase tracking-[0.2em] font-medium hover:text-slate-950 transition-colors duration-200 group" href="#">
+<span class="material-symbols-outlined transition-transform duration-300 group-hover:translate-x-1">group</span>
+<span>Customers</span>
+</a>
+</li>
+<li>
+<!-- Active Tab: Collections maps best to Category Management -->
+<a class="text-slate-950 border-l-2 border-slate-950 bg-slate-50 px-6 py-4 flex items-center gap-4 font-['Manrope'] text-[0.6875rem] uppercase tracking-[0.2em] font-medium group" href="#">
+<span class="material-symbols-outlined transition-transform duration-300 group-hover:translate-x-1">layers</span>
+<span>Collections</span>
+</a>
+</li>
+</ul>
+</nav>
+<div class="px-6 py-8 border-t border-slate-100 mt-auto">
+<ul class="space-y-1">
+<li>
+<a class="text-slate-400 py-2 flex items-center gap-4 font-['Manrope'] text-[0.6875rem] uppercase tracking-[0.2em] font-medium hover:text-slate-950 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Help</span>
+</a>
+</li>
+<li>
+<a class="text-slate-400 py-2 flex items-center gap-4 font-['Manrope'] text-[0.6875rem] uppercase tracking-[0.2em] font-medium hover:text-slate-950 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+</li>
+</ul>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-0 md:ml-64 pt-20 min-h-screen">
+<div class="px-8 py-12 lg:px-12">
+<!-- Header Section -->
+<header class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div class="max-w-2xl">
+<h1 class="font-headline text-5xl md:text-6xl font-light tracking-tight text-slate-950 mb-4">The Category Repository</h1>
+<p class="font-body text-slate-500 max-w-md leading-relaxed">Systematic classification of the Atelier Noir seasonal collections and permanent archives.</p>
+</div>
+<button class="bg-slate-950 text-white px-8 py-4 font-['Manrope'] text-[0.6875rem] uppercase tracking-[0.2em] font-semibold hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 ease-out flex items-center gap-3">
+<span class="material-symbols-outlined text-sm">add</span>
+          New Archive Entry
+        </button>
+</header>
+<!-- Main Layout: Table + Glass Sidebar -->
+<div class="flex flex-col xl:flex-row gap-12">
+<!-- Category List -->
+<div class="flex-1 overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-slate-200">
+<th class="pb-6 font-['Manrope'] text-[0.6875rem] uppercase tracking-[0.2em] font-semibold text-slate-400">Category Name</th>
+<th class="pb-6 font-['Manrope'] text-[0.6875rem] uppercase tracking-[0.2em] font-semibold text-slate-400">Status</th>
+<th class="pb-6 font-['Manrope'] text-[0.6875rem] uppercase tracking-[0.2em] font-semibold text-slate-400">Inventory</th>
+<th class="pb-6 font-['Manrope'] text-[0.6875rem] uppercase tracking-[0.2em] font-semibold text-slate-400 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<!-- Item 1 -->
+<tr class="stagger-1 group hover:bg-slate-50/50 transition-colors">
+<td class="py-8">
+<div class="flex items-center gap-6">
+<div class="w-16 h-20 bg-slate-100 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Close-up of a high-quality tailored charcoal suit fabric with fine weave detail and dramatic shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIJLT5XerZJrVwLOLR8O0od7A6nzWjkGgjScA3hB-D2M3Gi88csqKjGSpchsw3pc-9z49lOCr2ag0C8Tpw0RBZY0HdUeCoHUkoAhLfVCrMmwQ482SSG9jMJ-1Px9MqLXbxYdJZsuNEaeboZD7ACWWf-Q_jyyvL5MgNEYNr-Y_chnsA-lxvRzU74LtdCEPfad5Kil16v6Mps40j3DZNXIZ9s1PmLqsbs6v3JtR5s2ApbCgsoKrA1vFfQ6y3qYG_Neuk1wp2ykRfhaU"/>
+</div>
+<div>
+<span class="block font-headline text-xl text-slate-950">Tailoring</span>
+<span class="text-[0.6rem] text-slate-400 uppercase tracking-widest">ID: ARCH-TL-001</span>
+</div>
+</div>
+</td>
+<td class="py-8">
+<span class="inline-flex items-center gap-2 px-3 py-1 bg-slate-950 text-white text-[0.6rem] uppercase tracking-widest font-bold">Public</span>
+</td>
+<td class="py-8">
+<span class="font-body text-slate-600">42 SKUs</span>
+</td>
+<td class="py-8 text-right">
+<div class="flex justify-end gap-4">
+<button class="material-symbols-outlined text-slate-400 hover:text-slate-950 transition-colors">edit</button>
+<button class="material-symbols-outlined text-slate-400 hover:text-slate-950 transition-colors">visibility</button>
+<button class="material-symbols-outlined text-slate-400 hover:text-error transition-colors">delete_outline</button>
+</div>
+</td>
+</tr>
+<!-- Item 2 -->
+<tr class="stagger-2 group hover:bg-slate-50/50 transition-colors">
+<td class="py-8">
+<div class="flex items-center gap-6">
+<div class="w-16 h-20 bg-slate-100 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A heavy wool overcoat draped over a minimalist wooden chair in a sunlit architectural studio space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgle2TFjxuGNNEDf4-DiX5zxzhg7zB5rGQ0C9aik97cS7iMSLrti6hhkqUacscH1BTxYqTb6EDydQtCirK1cyeFoIbrP7pCHhr-9A2wYInrgYDQ0MTEOTQrRI9gwwHieeGDkEGVoJ_1QJ99S92FcoGqATfubB7g3ttqb5tXTmg7p_7f1FNeLwwP47kfFxzZuF9X_Gygr8PQPrG1YadgGefggXf2ZzPuptOVQg6Vc5m5Z99mbWgQxQLVwjSwLhBquY_T0ckz-u0ty4"/>
+</div>
+<div>
+<span class="block font-headline text-xl text-slate-950">Outerwear</span>
+<span class="text-[0.6rem] text-slate-400 uppercase tracking-widest">ID: ARCH-OW-002</span>
+</div>
+</div>
+</td>
+<td class="py-8">
+<span class="inline-flex items-center gap-2 px-3 py-1 bg-slate-950 text-white text-[0.6rem] uppercase tracking-widest font-bold">Public</span>
+</td>
+<td class="py-8">
+<span class="font-body text-slate-600">28 SKUs</span>
+</td>
+<td class="py-8 text-right">
+<div class="flex justify-end gap-4">
+<button class="material-symbols-outlined text-slate-400 hover:text-slate-950 transition-colors">edit</button>
+<button class="material-symbols-outlined text-slate-400 hover:text-slate-950 transition-colors">visibility</button>
+<button class="material-symbols-outlined text-slate-400 hover:text-error transition-colors">delete_outline</button>
+</div>
+</td>
+</tr>
+<!-- Item 3 -->
+<tr class="stagger-3 group hover:bg-slate-50/50 transition-colors">
+<td class="py-8">
+<div class="flex items-center gap-6">
+<div class="w-16 h-20 bg-slate-100 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Macro photography of black cashmere knitwear showing the soft texture and organic folds of the premium fabric" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDM8RiGma1KOiEI9RbAbBHaHCZHwtGmwwcpbHXxdiDwDtHd2g5nfMajVT3eJfV-liMGJXIZMoMwUOJMGUNj9iIhAZoMA26eH9h1Y_fz9OgkrbH8d-wxlObEVOZy-RZ7nCTSLgg9CEzDIh1BHnbqHq3A89VWfLpATiP6fToNvVX1bXc_lp_Z1CfrgjhS_XHdEBd4tQ29oYcTDVohoaFQYvD1wMg13xKOEm3LQqkMOKN4VwDLcMu-8jK5i_X8RlNaZwJ6v5icj_cwI1c"/>
+</div>
+<div>
+<span class="block font-headline text-xl text-slate-950">Knitwear</span>
+<span class="text-[0.6rem] text-slate-400 uppercase tracking-widest">ID: ARCH-KW-003</span>
+</div>
+</div>
+</td>
+<td class="py-8">
+<span class="inline-flex items-center gap-2 px-3 py-1 border border-slate-200 text-slate-400 text-[0.6rem] uppercase tracking-widest font-bold">Draft</span>
+</td>
+<td class="py-8">
+<span class="font-body text-slate-600">15 SKUs</span>
+</td>
+<td class="py-8 text-right">
+<div class="flex justify-end gap-4">
+<button class="material-symbols-outlined text-slate-400 hover:text-slate-950 transition-colors">edit</button>
+<button class="material-symbols-outlined text-slate-400 hover:text-slate-950 transition-colors">visibility</button>
+<button class="material-symbols-outlined text-slate-400 hover:text-error transition-colors">delete_outline</button>
+</div>
+</td>
+</tr>
+<!-- Item 4 -->
+<tr class="stagger-4 group hover:bg-slate-50/50 transition-colors">
+<td class="py-8">
+<div class="flex items-center gap-6">
+<div class="w-16 h-20 bg-slate-100 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Selection of premium leather accessories including a minimalist cardholder and belts on a black stone slab" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpyaE5j0rUqeTbIQW65uwtUGzkC3BTaK8slixBu9zV_B0aNDLlY9Z-9FS0MT2ZNd2HKefhGtIeX7J4kHZ8Jul0_cAVW3pdZ86Gj07sja4xM_Ru2tGxFFVHnGyess7b9h8Imr8kRaEsyafyNXDdzJV1aT91nRGGNVVvM7nY3qq66JCHmi94npbCFnT4IGZE7_tYyQdevrUp5gzH6zbv7LndKNP7Sm5kLQc71_dXuBNpgunh6x5zbtz0GK7umTZ491grDMnqsakeTWY"/>
+</div>
+<div>
+<span class="block font-headline text-xl text-slate-950">Accessories</span>
+<span class="text-[0.6rem] text-slate-400 uppercase tracking-widest">ID: ARCH-AC-004</span>
+</div>
+</div>
+</td>
+<td class="py-8">
+<span class="inline-flex items-center gap-2 px-3 py-1 bg-slate-950 text-white text-[0.6rem] uppercase tracking-widest font-bold">Public</span>
+</td>
+<td class="py-8">
+<span class="font-body text-slate-600">67 SKUs</span>
+</td>
+<td class="py-8 text-right">
+<div class="flex justify-end gap-4">
+<button class="material-symbols-outlined text-slate-400 hover:text-slate-950 transition-colors">edit</button>
+<button class="material-symbols-outlined text-slate-400 hover:text-slate-950 transition-colors">visibility</button>
+<button class="material-symbols-outlined text-slate-400 hover:text-error transition-colors">delete_outline</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Glassmorphic Details Sidebar -->
+<aside class="w-full xl:w-[400px] shrink-0 stagger-5">
+<div class="glass-effect bg-white/70 border border-slate-200/40 p-10 sticky top-32">
+<div class="mb-10">
+<h2 class="font-headline text-3xl text-slate-950 mb-2">Category Details</h2>
+<p class="font-body text-[0.6875rem] uppercase tracking-[0.2em] text-slate-400">Current Selection: Tailoring</p>
+</div>
+<div class="space-y-8">
+<section>
+<label class="block font-['Manrope'] text-[0.6rem] uppercase tracking-[0.2em] font-bold text-slate-950 mb-3">Display Name</label>
+<input class="w-full bg-transparent border-0 border-b border-slate-200 px-0 py-2 focus:ring-0 focus:border-slate-950 transition-colors font-headline text-xl text-slate-950" type="text" value="Tailoring"/>
+</section>
+<section>
+<label class="block font-['Manrope'] text-[0.6rem] uppercase tracking-[0.2em] font-bold text-slate-950 mb-3">Narrative Description</label>
+<textarea class="w-full bg-transparent border-0 border-b border-slate-200 px-0 py-2 focus:ring-0 focus:border-slate-950 transition-colors font-body text-sm leading-relaxed text-slate-600" rows="4">The foundation of the Atelier Noir house. Precision-cut silhouettes, structural integrity, and architectural lines defined through artisanal craftsmanship.</textarea>
+</section>
+<section>
+<label class="block font-['Manrope'] text-[0.6rem] uppercase tracking-[0.2em] font-bold text-slate-950 mb-3">Archive Visibility</label>
+<div class="flex gap-4">
+<button class="flex-1 py-3 border border-slate-950 bg-slate-950 text-white text-[0.6rem] uppercase tracking-widest font-bold">Public</button>
+<button class="flex-1 py-3 border border-slate-200 text-slate-400 text-[0.6rem] uppercase tracking-widest font-bold hover:border-slate-400 transition-colors">Draft</button>
+</div>
+</section>
+<section>
+<label class="block font-['Manrope'] text-[0.6rem] uppercase tracking-[0.2em] font-bold text-slate-950 mb-3">Featured Archetype Image</label>
+<div class="w-full aspect-[4/5] bg-slate-100 overflow-hidden relative group">
+<img class="w-full h-full object-cover" data-alt="High-end studio product shot of a black structured blazer on an invisible mannequin with sharp architectural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS7zHAcq3brIaOoFpulpusat6PbvQrCBdGZxRGh9E7xNcb5gVoyBiSUomo335YTdaPm_MLhfLAUatLDfnZjzkzfPo9MbxheYYMGIad04OTXusP6A7RwS9VTtHWMPVduI2t_qnngFFLyLCQ0aUyy2ozjnj9NvqPgC-VCHmHGtbzPdr1-XY9YdOKTcwpHymDF5XF4sZxkKqae3n1Dd2i7tBDoxxs9RZrwfatYQnwRaHy0ClCvlXuF7Z6i5xw6ckYKWi91ALfdu4HCH4"/>
+<div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="text-white font-['Manrope'] text-[0.6rem] uppercase tracking-widest font-bold border border-white px-6 py-2">Update Asset</button>
+</div>
+</div>
+</section>
+<div class="pt-6 flex flex-col gap-3">
+<button class="w-full bg-slate-950 text-white py-4 font-['Manrope'] text-[0.6875rem] uppercase tracking-[0.2em] font-semibold hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+                  Update Repository
+                </button>
+<button class="w-full text-slate-400 py-3 font-['Manrope'] text-[0.6rem] uppercase tracking-[0.2em] font-semibold hover:text-error transition-colors">
+                  Discard Changes
+                </button>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<!-- Mobile Navigation Bar (Implementation from requirements) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-xl border-t border-slate-200 z-50 flex justify-around items-center h-16 px-4">
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-950" href="#">
+<span class="material-symbols-outlined text-[20px] font-bold">layers</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+</a>
+</nav>
+</body></html>

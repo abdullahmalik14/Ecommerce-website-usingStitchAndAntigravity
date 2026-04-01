@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Join the Archive | Atelier Noir</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@200;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-variant": "#f8ddd3",
+                        "tertiary-fixed-dim": "#e9c176",
+                        "tertiary": "#755717",
+                        "secondary-fixed": "#ffdbce",
+                        "surface": "#fff8f6",
+                        "on-primary-fixed": "#370e00",
+                        "surface-container-highest": "#f8ddd3",
+                        "primary-fixed": "#ffdbce",
+                        "primary": "#a33900",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#5a4138",
+                        "surface-tint": "#a73a00",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#e2bfb3",
+                        "on-secondary-fixed-variant": "#783112",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#ffb599",
+                        "secondary": "#964827",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "on-primary-fixed-variant": "#7f2b00",
+                        "inverse-surface": "#3d2d26",
+                        "background": "#fff8f6",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#ffb599",
+                        "on-background": "#261813",
+                        "primary-container": "#cc4900",
+                        "outline": "#8e7166",
+                        "on-tertiary-fixed": "#261900",
+                        "on-secondary-container": "#763011",
+                        "surface-container-high": "#fee3d9",
+                        "tertiary-fixed": "#ffdea5",
+                        "on-tertiary-container": "#fffbff",
+                        "surface-dim": "#efd5cb",
+                        "surface-container-low": "#fff1ec",
+                        "tertiary-container": "#90702e",
+                        "inverse-on-surface": "#ffede7",
+                        "secondary-fixed-dim": "#ffb599",
+                        "secondary-container": "#fd9a72",
+                        "on-secondary-fixed": "#370e00",
+                        "surface-bright": "#fff8f6",
+                        "on-primary-container": "#fffbff",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "surface-container": "#ffe9e2",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#261813"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .stagger-1 { opacity: 0; transform: translateY(20px); animation: reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; animation-delay: 0.1s; }
+        .stagger-2 { opacity: 0; transform: translateY(20px); animation: reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; animation-delay: 0.2s; }
+        .stagger-3 { opacity: 0; transform: translateY(20px); animation: reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; animation-delay: 0.3s; }
+        .stagger-4 { opacity: 0; transform: translateY(20px); animation: reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; animation-delay: 0.4s; }
+        .stagger-5 { opacity: 0; transform: translateY(20px); animation: reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; animation-delay: 0.5s; }
+        
+        @keyframes reveal {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hover-underline-reveal {
+            position: relative;
+        }
+        .hover-underline-reveal::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+        .hover-underline-reveal:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+<!-- TopNavBar (Shared Component Reference) -->
+<!-- Content: Atelier Noir, Collections, The Archive, About, Sign In -->
+<nav class="bg-white/70 dark:bg-black/70 backdrop-blur-3xl border-b border-stone-200/20 dark:border-stone-800/20 flex justify-between items-center w-full px-8 py-6 z-50 fixed top-0">
+<div class="text-2xl font-serif tracking-tighter text-stone-950 dark:text-white">Atelier Noir</div>
+<div class="hidden md:flex gap-12">
+<a class="text-stone-500 dark:text-stone-400 Manrope label-sm tracking-widest uppercase hover:opacity-70 transition-opacity duration-300" href="#">Collections</a>
+<a class="text-stone-500 dark:text-stone-400 Manrope label-sm tracking-widest uppercase hover:opacity-70 transition-opacity duration-300" href="#">The Archive</a>
+<a class="text-stone-500 dark:text-stone-400 Manrope label-sm tracking-widest uppercase hover:opacity-70 transition-opacity duration-300" href="#">About</a>
+</div>
+<div class="flex items-center gap-6">
+<a class="text-stone-900 dark:text-white font-semibold border-b border-stone-900 dark:border-white Manrope label-sm tracking-widest uppercase transition-transform ease-out scale-102" href="#">Sign In</a>
+</div>
+</nav>
+<main class="min-h-screen pt-24 grid grid-cols-1 lg:grid-cols-12 gap-0 overflow-hidden">
+<!-- Editorial Image Section (Asymmetrical) -->
+<section class="hidden lg:block lg:col-span-7 relative h-full overflow-hidden">
+<div class="absolute inset-0 bg-stone-950/10 z-10"></div>
+<img alt="Editorial" class="w-full h-full object-cover grayscale brightness-75 transition-transform duration-1000 hover:scale-105" data-alt="high-fashion editorial photography of a minimalist atelier with architectural shadows and a single draped silk garment on a stone pedestal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIfH9fFgESTUbll5C2Bm5CVnDKze7A5K1rVrb_B_nYNUfrzrU1bRaNnb6n8tUbVYkRaFRokbSFMF4oCaiqUVEbOXN7lViWx55-_XXrcGgHtiLufn5Df7I7sG0qJGxS9yCEMyMJ7ipy3r4ezi6p8a63LNP4wxIZSzKoxm4cmFdywjbh7WToFK9KICOHxIajfAHgCwgcSdjBVKN-QtAEVWyZeF_ykWB2s_P0okpZ1sGpDYKiz3Z4kh0XD18oB4Hc2udVbWfGdCM67ic"/>
+<div class="absolute bottom-12 left-12 z-20 max-w-md">
+<p class="font-headline text-white text-4xl leading-tight italic stagger-1">
+                    "Crafted for those who find beauty in the shadows of precision."
+                </p>
+</div>
+</section>
+<!-- Registration Form Section -->
+<section class="col-span-1 lg:col-span-5 flex items-center justify-center p-8 lg:p-16 bg-surface">
+<div class="w-full max-w-md bg-white/80 backdrop-blur-xl p-10 shadow-sm border border-stone-100/50 relative z-20">
+<header class="mb-12 stagger-1">
+<h1 class="font-headline text-4xl text-on-background mb-4">Create an Account</h1>
+<p class="text-stone-500 font-body text-sm tracking-wide">Enter the curated world of Atelier Noir and gain exclusive access to the seasonal archives.</p>
+</header>
+<form class="space-y-8">
+<div class="stagger-2">
+<label class="block font-label text-[10px] uppercase tracking-[0.2em] text-stone-400 mb-2" for="full_name">Full Name</label>
+<input class="w-full bg-transparent border-0 border-b border-stone-200 py-3 px-0 focus:ring-0 focus:border-tertiary text-on-background placeholder:text-stone-300 transition-colors" id="full_name" name="full_name" placeholder="Alexander Noir" required="" type="text"/>
+</div>
+<div class="stagger-3">
+<label class="block font-label text-[10px] uppercase tracking-[0.2em] text-stone-400 mb-2" for="email">Email Address</label>
+<input class="w-full bg-transparent border-0 border-b border-stone-200 py-3 px-0 focus:ring-0 focus:border-tertiary text-on-background placeholder:text-stone-300 transition-colors" id="email" name="email" placeholder="archive@ateliernoir.com" required="" type="email"/>
+</div>
+<div class="stagger-4">
+<label class="block font-label text-[10px] uppercase tracking-[0.2em] text-stone-400 mb-2" for="password">Password</label>
+<input class="w-full bg-transparent border-0 border-b border-stone-200 py-3 px-0 focus:ring-0 focus:border-tertiary text-on-background placeholder:text-stone-300 transition-colors" id="password" name="password" placeholder="••••••••••••" required="" type="password"/>
+</div>
+<div class="pt-6 stagger-5">
+<button class="w-full bg-stone-950 text-white font-label py-5 tracking-[0.2em] uppercase text-xs hover:bg-stone-800 transition-all duration-300 active:scale-[0.98] flex items-center justify-center gap-3" type="submit">
+                            Join the Archive
+                            <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</button>
+</div>
+</form>
+<footer class="mt-12 text-center stagger-5">
+<p class="text-stone-500 text-xs font-body tracking-wide">
+                        Already have an account? 
+                        <a class="text-stone-950 font-semibold hover-underline-reveal ml-1 inline-block transition-colors" href="#">Sign In</a>
+</p>
+</footer>
+</div>
+<!-- Absolute decorative elements for asymmetry -->
+<div class="absolute top-20 right-20 w-32 h-32 bg-tertiary-fixed-dim/10 -z-10 blur-3xl opacity-50"></div>
+<div class="absolute bottom-20 left-10 w-48 h-48 bg-secondary-fixed/10 -z-10 blur-3xl opacity-30"></div>
+</section>
+</main>
+<!-- Footer (Shared Component Reference) -->
+<footer class="bg-stone-50 dark:bg-stone-950 border-t border-stone-200 dark:border-stone-800 w-full py-12">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-lg font-serif text-stone-950 dark:text-white">Atelier Noir</div>
+<div class="flex gap-8">
+<a class="text-stone-500 dark:text-stone-400 Manrope text-xs tracking-wide hover:text-stone-950 dark:hover:text-white transition-colors underline-reveal" href="#">Privacy Policy</a>
+<a class="text-stone-500 dark:text-stone-400 Manrope text-xs tracking-wide hover:text-stone-950 dark:hover:text-white transition-colors underline-reveal" href="#">Terms of Service</a>
+<a class="text-stone-500 dark:text-stone-400 Manrope text-xs tracking-wide hover:text-stone-950 dark:hover:text-white transition-colors underline-reveal" href="#">Contact</a>
+</div>
+<div class="text-stone-500 dark:text-stone-400 Manrope text-xs tracking-wide">© 2024 Atelier Noir. All Rights Reserved.</div>
+</div>
+</footer>
+</body></html>
