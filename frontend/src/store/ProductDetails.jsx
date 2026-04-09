@@ -10,8 +10,8 @@ const ProductDetails = () => {
   const [selectedColor, setSelectedColor] = useState('Midnight Black');
   const [activeTab, setActiveTab] = useState('materials');
 
-  const mainImage = images.details.main;
   const thumbnails = images.details.thumbs;
+  const [currentMainImage, setCurrentMainImage] = useState(images.details.main);
 
   const relatedProducts = [
     { name: 'THE ARCHIVE BLAZER', price: 1200, image: images.details.related.blazer },
@@ -27,12 +27,13 @@ const ProductDetails = () => {
           {/* Left Side: Image Gallery - High Fidelity */}
           <div className="flex-1 flex flex-col md:flex-row-reverse gap-8">
             <motion.div 
+              key={currentMainImage}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="flex-1 aspect-3/4 bg-primary/5 dark:bg-primary/10 overflow-hidden relative border border-primary/3"
             >
               <img 
-                src={mainImage} 
+                src={currentMainImage} 
                 alt="Product Featured" 
                 className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105" 
                 loading="eager"
@@ -47,9 +48,11 @@ const ProductDetails = () => {
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.1 }}
-                  className="aspect-3/4 min-w-[80px] md:min-w-full bg-primary/5 border border-primary/10 hover:border-primary transition-all overflow-hidden"
+                  onClick={() => setCurrentMainImage(thumb)}
+                  className={`aspect-3/4 min-w-[80px] md:min-w-full bg-primary/5 border transition-all overflow-hidden
+                  ${currentMainImage === thumb ? 'border-primary' : 'border-primary/10 hover:border-primary'}`}
                 >
-                  <img src={thumb} alt="Preview" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all" loading="lazy" />
+                  <img src={thumb} alt="Preview" className={`w-full h-full object-cover transition-all ${currentMainImage === thumb ? 'grayscale-0' : 'grayscale hover:grayscale-0'}`} loading="lazy" />
                 </motion.button>
               ))}
             </div>
@@ -127,13 +130,13 @@ const ProductDetails = () => {
 
                  {/* Accordions */}
                  <div className="border-t border-primary/10 pt-10 space-y-6">
-                    {['materials', 'shipping', 'sustainability'].map(tab => (
+                    {['materials', 'shipping', 'sustainability', 'specifications'].map(tab => (
                       <div key={tab} className="border-b border-primary/5 pb-6">
                         <button 
                           onClick={() => setActiveTab(activeTab === tab ? '' : tab)}
                           className="w-full flex justify-between items-center text-[10px] font-black uppercase tracking-widest"
                         >
-                          {tab === 'materials' ? 'Materials & Care' : (tab === 'shipping' ? 'Shipping & Returns' : 'Sustainability')}
+                          {tab === 'materials' ? 'Materials & Care' : (tab === 'shipping' ? 'Shipping & Returns' : (tab === 'sustainability' ? 'Sustainability' : 'Specifications'))}
                           {activeTab === tab ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
                         </button>
                         <AnimatePresence>
@@ -144,11 +147,23 @@ const ProductDetails = () => {
                               exit={{ height: 0, opacity: 0 }}
                               className="overflow-hidden"
                             >
-                              <p className="pt-6 text-xs leading-relaxed text-primary/60 font-medium">
-                                {tab === 'materials' && "100% Mongolian Cashmere. Double-faced construction for maximum warmth. Dry clean only. Store on a wide-shoulder hanger."}
-                                {tab === 'shipping' && "Complimentary express shipping on all orders over €1,500. Returns are accepted within 14 days for a full refund or exchange."}
-                                {tab === 'sustainability' && "Ethically sourced fibers and produced in small batches to reduce waste. Our atelier operates on 100% renewable energy."}
-                              </p>
+                              <div className="pt-6 space-y-4">
+                                {tab === 'materials' && <p className="text-xs leading-relaxed text-primary/60 font-medium">100% Mongolian Cashmere. Double-faced construction for maximum warmth. Dry clean only. Store on a wide-shoulder hanger.</p>}
+                                {tab === 'shipping' && <p className="text-xs leading-relaxed text-primary/60 font-medium">Complimentary express shipping on all orders over €1,500. Returns are accepted within 14 days for a full refund or exchange.</p>}
+                                {tab === 'sustainability' && <p className="text-xs leading-relaxed text-primary/60 font-medium">Ethically sourced fibers and produced in small batches to reduce waste. Our atelier operates on 100% renewable energy.</p>}
+                                {tab === 'specifications' && (
+                                  <div className="grid grid-cols-2 gap-y-4 text-[10px] font-black uppercase tracking-tighter">
+                                    <div className="text-primary/30">Weight</div>
+                                    <div className="text-primary">Heavyweight</div>
+                                    <div className="text-primary/30">Lining</div>
+                                    <div className="text-primary">Cupro Silk</div>
+                                    <div className="text-primary/30">Closure</div>
+                                    <div className="text-primary">Horn Button</div>
+                                    <div className="text-primary/30">Origin</div>
+                                    <div className="text-primary">London, UK</div>
+                                  </div>
+                                )}
+                              </div>
                             </motion.div>
                           )}
                         </AnimatePresence>

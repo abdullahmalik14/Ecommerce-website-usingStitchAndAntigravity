@@ -53,12 +53,13 @@ const Home = () => {
       {/* 1. Hero Section - Cinematic Entrance */}
       <section className="relative h-screen w-full flex items-center overflow-hidden">
         <motion.div 
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 2, ease: "easeOut" }}
+          style={{ 
+            translateY: 'var(--scroll-y)',
+            scale: 'var(--scroll-scale)'
+          }}
           className="absolute inset-0 z-0"
         >
-          <div className="absolute inset-0 bg-primary/25 z-10 transition-opacity duration-1000"></div>
+          <div className="absolute inset-0 bg-primary/30 z-10 transition-opacity duration-1000"></div>
           <img 
             className="absolute inset-0 w-full h-full object-cover" 
             src={images.hero}
@@ -67,39 +68,37 @@ const Home = () => {
         </motion.div>
         
         <div className="relative z-20 px-8 md:px-20 max-w-5xl">
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="text-[10px] md:text-sm uppercase tracking-[0.6em] font-sans font-black mb-6 text-white/90 drop-shadow-sm"
-          >
-            Fall/Winter 2024 Archive
-          </motion.p>
-          
-          <motion.h1 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="text-6xl md:text-9xl text-white font-sans font-black leading-none tracking-tighter uppercase mb-12 drop-shadow-2xl"
-          >
-            THE NEW <br /> <span className="italic font-serif">ELEGANCE</span>
-          </motion.h1>
-          
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1 }}
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           >
-            <Link to="/collections">
-              <button className="group relative bg-primary text-on-primary px-16 py-6 text-xs tracking-[0.3em] font-black uppercase overflow-hidden transition-all duration-500 hover:tracking-[0.5em]">
-                <span className="relative z-10">SHOP NOW</span>
-                <motion.div 
-                  initial={{ x: '-100%' }}
-                  whileHover={{ x: '100%' }}
-                  className="absolute inset-0 bg-tertiary transition-transform duration-500 -z-0"
-                />
+            <p className="text-[10px] md:text-sm uppercase tracking-[0.6em] font-sans font-black mb-6 text-white/90 drop-shadow-sm">
+              Fall/Winter 2024 Archive
+            </p>
+            
+            <h1 className="text-6xl md:text-9xl text-white font-sans font-black leading-none tracking-tighter uppercase mb-12 drop-shadow-2xl">
+              THE NEW <br /> <span className="italic font-serif">ELEGANCE</span>
+            </h1>
+            
+            <div className="flex flex-wrap gap-8 items-center">
+              <Link to="/collections">
+                <button className="group relative bg-primary text-on-primary px-16 py-6 text-xs tracking-[0.3em] font-black uppercase overflow-hidden transition-all duration-500 hover:tracking-[0.5em]">
+                  <span className="relative z-10">SHOP NOW</span>
+                  <motion.div 
+                    initial={{ x: '-100%' }}
+                    whileHover={{ x: '100%' }}
+                    className="absolute inset-0 bg-tertiary transition-transform duration-500 -z-0"
+                  />
+                </button>
+              </Link>
+              <button 
+                onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+                className="text-white text-[10px] tracking-[0.4em] font-black uppercase border-b border-white/30 pb-2 hover:border-white transition-all"
+              >
+                EXPLORE ARCHIVE
               </button>
-            </Link>
+            </div>
           </motion.div>
         </div>
 
@@ -110,7 +109,11 @@ const Home = () => {
           transition={{ delay: 2, duration: 1 }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20"
         >
-          <div className="w-[1px] h-20 bg-gradient-to-b from-white to-transparent"></div>
+          <motion.div 
+            animate={{ y: [0, 20, 0] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+            className="w-[1px] h-20 bg-gradient-to-b from-white to-transparent"
+          ></motion.div>
         </motion.div>
       </section>
 
@@ -262,6 +265,50 @@ const Home = () => {
         </motion.div>
       </section>
 
+      {/* 4a. Trending Now - New Section */}
+      <section className="py-40 bg-white">
+        <div className="px-8 md:px-20 mb-20 flex flex-col md:flex-row justify-between items-end gap-8">
+          <div>
+             <h4 className="text-[10px] tracking-[0.6em] text-primary/30 font-black uppercase mb-4">In Demand</h4>
+             <h2 className="text-5xl md:text-7xl font-sans font-black tracking-tighter uppercase leading-none">TRENDING <br /> NOW</h2>
+          </div>
+          <p className="text-primary/60 max-w-sm text-sm font-medium leading-relaxed pb-2">
+            The most sought-after silhouettes from our latest drop, redefined for the modern archive.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 px-8 md:px-20">
+          {[
+            { id: 1, name: 'Wool Overcoat', price: '€2,450', img: images.listing.woolOvercoat, cat: 'Outerwear' },
+            { id: 2, name: 'Cashmere Knit', price: '€850', img: images.listing.cashmereKnit, cat: 'Knitwear' },
+            { id: 3, name: 'Tech Blazer', price: '€1,200', img: images.listing.techBlazer, cat: 'Tailoring' },
+            { id: 4, name: 'Oxford Boots', price: '€1,100', img: images.listing.oxfordBoots, cat: 'Shoes' },
+          ].map((item, idx) => (
+            <motion.div 
+              key={item.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.1 }}
+              className="group relative cursor-pointer"
+            >
+              <div className="aspect-[3/4] overflow-hidden mb-6 bg-primary/5">
+                <img src={item.img} alt={item.name} className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105" />
+              </div>
+              <div className="flex justify-between items-start">
+                <div>
+                   <p className="text-[10px] tracking-widest text-primary/40 font-black uppercase mb-1">{item.cat}</p>
+                   <h3 className="text-sm font-black uppercase tracking-tight">{item.name}</h3>
+                </div>
+                <p className="text-sm font-black tracking-tighter">{item.price}</p>
+              </div>
+              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 text-[8px] font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                Limited Archive
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* 5. Brand Philosophy - Editorial Animation */}
       <section className="py-40 px-8 md:px-20 grid grid-cols-1 md:grid-cols-2 gap-32 items-center bg-surface">
         <motion.div 
@@ -304,6 +351,26 @@ const Home = () => {
             loading="lazy"
           />
         </motion.div>
+      </section>
+
+      {/* 5a. Featured Quote - New Section */}
+      <section className="py-40 bg-primary/5">
+        <div className="container mx-auto px-8 max-w-4xl text-center">
+           <motion.div
+             initial={{ opacity: 0, scale: 0.8 }}
+             whileInView={{ opacity: 1, scale: 1 }}
+             transition={{ duration: 1 }}
+           >
+             <Sparkle className="mx-auto text-primary/20 mb-12" size={60} strokeWidth={0.5} />
+             <h3 className="text-3xl md:text-5xl font-serif italic leading-tight text-primary/80">
+               "Quality is not an act, it is a habit. At The Archive, we don't just dress the individual, we honor the legacy of craftsmanship."
+             </h3>
+             <div className="mt-12 flex flex-col items-center">
+                <div className="w-12 h-[1px] bg-primary/20 mb-6"></div>
+                <p className="text-[10px] tracking-[0.5em] font-black uppercase text-primary">Julian Thorne, Founder</p>
+             </div>
+           </motion.div>
+        </div>
       </section>
 
       {/* 6. Newsletter - Minimal & Professional */}

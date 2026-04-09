@@ -88,6 +88,51 @@ const About = () => {
           </div>
         </section>
 
+        {/* Core Values Section - New */}
+        <section className="py-40 bg-surface border-y border-primary/5">
+          <div className="max-w-[1800px] mx-auto px-8 lg:px-24">
+             <div className="text-center mb-24">
+                <h2 className="text-[10px] tracking-[0.6em] text-primary/30 font-black uppercase mb-4">Our Foundations</h2>
+                <h3 className="text-4xl md:text-6xl font-serif italic tracking-tighter">THE ARCHIVE PRINCIPLES</h3>
+             </div>
+             
+             <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+                {[
+                  { 
+                    title: 'Sustainable Sourcing', 
+                    desc: 'We partner with historic mills that prioritize organic fibers and ethical transparency.',
+                    icon: 'Material' 
+                  },
+                  { 
+                    title: 'Timeless Silhouette', 
+                    desc: 'Designed to outlive trends, our garments focus on structural integrity and classic form.',
+                    icon: 'Design' 
+                  },
+                  { 
+                    title: 'Honest Craft', 
+                    desc: 'Transparency in every seam. We value the human hand and the time required for excellence.',
+                    icon: 'Craft' 
+                  }
+                ].map((val, idx) => (
+                  <motion.div 
+                    key={val.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.2 }}
+                    viewport={{ once: true }}
+                    className="group"
+                  >
+                    <div className="w-12 h-12 border border-primary/10 flex items-center justify-center mb-8 group-hover:bg-primary group-hover:text-surface transition-colors duration-500">
+                      <span className="text-[10px] font-black">{idx + 1}</span>
+                    </div>
+                    <h4 className="text-xl font-black uppercase tracking-tighter mb-4">{val.title}</h4>
+                    <p className="text-primary/60 font-medium leading-relaxed">{val.desc}</p>
+                  </motion.div>
+                ))}
+             </div>
+          </div>
+        </section>
+
         {/* Global Connection Section */}
         <section className="py-32 bg-primary/5 dark:bg-primary/5 transition-colors duration-500">
           <div className="max-w-[1800px] mx-auto px-8 lg:px-24">
