@@ -4,6 +4,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { X, Filter, ChevronDown, ShoppingBag, Grid } from 'lucide-react';
 import { images } from '../assets/images';
 
+
 const products = [
   {
     id: 1,

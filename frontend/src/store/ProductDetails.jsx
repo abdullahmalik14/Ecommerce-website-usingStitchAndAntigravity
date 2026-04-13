@@ -13,6 +13,7 @@ const ProductDetails = () => {
   const thumbnails = images.details.thumbs;
   const [currentMainImage, setCurrentMainImage] = useState(images.details.main);
 
+  
   const relatedProducts = [
     { name: 'THE ARCHIVE BLAZER', price: 1200, image: images.details.related.blazer },
     { name: 'POPLIN DRESS SHIRT', price: 450, image: images.details.related.shirt },
