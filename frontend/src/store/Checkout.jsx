@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 const Checkout = () => {
   const [step, setStep] = useState(1); // 1: Shipping, 2: Payment, 3: Review
 
+  
   return (
     <div className="pt-32 pb-24 bg-surface min-h-screen transition-colors duration-500 font-sans">
       <div className="container mx-auto px-8 lg:px-12 max-w-[1600px]">
